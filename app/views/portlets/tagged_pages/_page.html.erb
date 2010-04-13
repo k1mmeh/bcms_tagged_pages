@@ -1,0 +1,18 @@
+<div id="page_summary_<%= page.id %>" class="page_summary">
+  <h2>
+    <%= link_to(page.name, page.path, :class => 'page_heading') %>
+  </h2>
+  <% unless page.description.blank? -%>
+    <p class="body">
+      <%=h page.description %>
+    </p>
+  <% end -%>
+  <p class="meta">
+    Last updated on <%= page.updated_at.strftime("%d/%m/%Y") %>
+    <strong>|</strong>
+    Tags
+    <span class="tags">
+      <%= page.tags.map{|t| link_to(t.name, pages_with_tag_path(:tag => t.name)) }.join(", ") %>
+    </span>
+  </p>
+</div>
