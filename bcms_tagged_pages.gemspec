@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
     "app/views/portlets/tags_with_pages/render.html.erb",
     "db/migrate/20100412083709_create_tagged_pages_portlet.rb",
     "lib/bcms_tagged_pages.rb",
-    "lib/bcms_tagged_pages/generators/templates/_form.html.erb",
+    "lib/bcms_tagged_pages/generators/files/_form.html.erb",
     "lib/bcms_tagged_pages/models/page.rb",
     "rails/init.rb"
   ]
