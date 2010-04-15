@@ -17,3 +17,6 @@ File.open(File.join(gem_root, page_view_dir, '_form.html.erb'), 'a') do |f|
     end
   end
 end
+
+Cms.add_generator_paths gem_root, File.join(page_view_dir, '_form.html.erb')
+
