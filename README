@@ -1,0 +1,34 @@
+# Tagged pages module
+
+Version 0.1
+Kimmy Chirnside
+kimmy.chirnside@gmail.com
+
+I welcome all feedback and suggestions regarding functionality, working or not.  Or
+suggestions of how it could work better.
+
+This module extends the core BrowserCMS Page type, to support tagging of pages.  This
+is specifically for the purpose of creating a tags index (tags_with_pages portlet) and
+then browse pages by tag (tagged_pages portlet).
+It provides two new portlets, TagsWithPagesPortlet, which borrows much functionality
+from the core TagCloudPortlet, but builds the could specifically from tags attached to
+pages.  Also TaggedPagesPorlet, which provides a route to list Pages for a specific
+tag.
+
+To install, download the source from github at http://github.com/k1mmeh/bcms_tagged_pages.
+Then inside the root directory of the downloaded source, run:
+  gem build bcms_tagged_pages.gemspec
+
+Then install the gem by running:
+  gem install bcms_tagged_pages-0.1.gem
+
+Now edit config/environment.rb and add the following line AFTER the inclusion of the
+browsercms gem:
+  config.gem 'bcms_tagged_pages', :version => '0.1'
+
+Then to install the files appropriately, run:
+  ruby script/generate browser_cms
+
+Finally update the datebase by running the new migration.  Run:
+  rake db:migrate
+
