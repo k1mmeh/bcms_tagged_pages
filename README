@@ -32,3 +32,12 @@ Then to install the files appropriately, run:
 Finally update the datebase by running the new migration.  Run:
   rake db:migrate
 
+== In The CMS ==
+
+Once the module is installed, you can add the TagsWithPagesPortlet to any 
+container in the site.  I recommend putting in a footer container, or in
+a column navigation bar.
+
+To list Pages with a given Tag, you need to update the page created by the
+migration with is in the Home section and is called Pages by Tag.  Add the
+TaggedPagesPortlet to the main container on this page.
