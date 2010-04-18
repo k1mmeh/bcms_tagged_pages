@@ -1,4 +1,4 @@
-class TagsWithPagesPortlet < Portlet
+class TagsWithContentPortlet < Portlet
 
   LAYOUTS = [
     ['Cloud', 'cloud'],
@@ -28,9 +28,26 @@ class TagsWithPagesPortlet < Portlet
     else # layout == 'list'
       @partial = 'list'
     end
+
+    # this is a bit trickier than TagsWithPagesPortlet.  We need to find any content
+    # that is tagged by @tag but is also a connectable for a visible page.
+    visible_conn_query = <<QQ
+SELECT NULL FROM connectors
+  INNER JOIN pages ON pages.id = connectors.page_id
+    WHERE connectors.connectable_id = taggings.taggable_id AND
+      connectors.connectable_type = taggings.taggable_type AND
+      connectors.page_version = pages.version
+QQ
+
+    # check if we want to include pages in this result set first
+    if @portlet.include_pages == '1'
+      conditions = "taggings.taggable_type = 'Page' OR EXISTS (#{visible_conn_query})"
+    else
+      conditions = "EXISTS (#{visible_conn_query})"
+    end
     
     @tags = Tag.cloud(
-      :conditions => ["taggings.taggable_type = 'Page'"],
+      :conditions => conditions,
       :having => 'count > 0',
       :order => order_string, :limit => limit,
       :sizes => @sizes.length

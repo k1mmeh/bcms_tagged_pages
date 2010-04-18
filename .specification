@@ -1,0 +1,75 @@
+--- !ruby/object:Gem::Specification 
+name: bcms_tagged_pages
+version: !ruby/object:Gem::Version 
+  prerelease: false
+  segments: 
+  - 0
+  - 1
+  version: "0.1"
+platform: ruby
+authors: 
+- Kimmy Chirnside
+autorequire: 
+bindir: bin
+cert_chain: []
+
+date: 2010-04-12 00:00:00 +12:00
+default_executable: 
+dependencies: []
+
+description: Extension to BCMS pages to allow tagging and browsing by tag
+email: kimmy.chirnside@gmail.com
+executables: []
+
+extensions: []
+
+extra_rdoc_files: 
+- README
+files: 
+- app/portlets/tagged_pages_portlet.rb
+- app/portlets/tags_with_pages_portlet.rb
+- app/views/portlets/tagged_pages/_form.html.erb
+- app/views/portlets/tagged_pages/_page.html.erb
+- app/views/portlets/tagged_pages/render.html.erb
+- app/views/portlets/tags_with_pages/_cloud.html.erb
+- app/views/portlets/tags_with_pages/_form.html.erb
+- app/views/portlets/tags_with_pages/_list.html.erb
+- app/views/portlets/tags_with_pages/render.html.erb
+- db/migrate/20100412083709_create_tagged_pages_portlet.rb
+- lib/bcms_tagged_pages.rb
+- lib/bcms_tagged_pages/generators/files/_form.html.erb
+- lib/bcms_tagged_pages/models/page.rb
+- rails/init.rb
+- README
+has_rdoc: true
+homepage: http://github.com/k1mmeh/bcms_tagged_pages
+licenses: []
+
+post_install_message: 
+rdoc_options: 
+- --charset=UTF-8
+require_paths: 
+- lib
+required_ruby_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      segments: 
+      - 0
+      version: "0"
+required_rubygems_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      segments: 
+      - 0
+      version: "0"
+requirements: []
+
+rubyforge_project: 
+rubygems_version: 1.3.6
+signing_key: 
+specification_version: 2
+summary: Extension to BCMS pages to allow tagging and browsing by tag
+test_files: []
+

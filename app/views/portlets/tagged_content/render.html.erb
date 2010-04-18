@@ -1,0 +1,39 @@
+<% if @tag -%>
+  <h2>Pages for tag '<%=h @tag.name %>'</h2>
+  <%= render(:partial => "portlets/tagged_content/item", :collection => @items) %>
+
+  <div class="pagination">
+    <div class="info">
+      Displaying
+      <%= @items.offset + 1 %>
+      -
+      <%= @items.offset + @items.size %>
+      of
+      <%= @items.total_entries %>
+    </div>
+    <div class="links">
+      <%= link_to("&nbsp;", url_for({:page => 1}), :id => "first_page_link") %>
+      <%= link_to("&nbsp;", url_for({:page => @items.previous_page ? @items.previous_page : 1}), :id => "previous_page_link") %>
+      <span>
+        <% url = URI.parse(url_for({:page => 1})) %>
+        <% form_tag url.path, :method => :get, :class => "current_page" do %>
+          <% url.query.to_s.split('&').each do |p|; k, v = p.split('=') %>
+            <%= hidden_field_tag(k, CGI::unescape(v.to_s), :id => "pagination_hidden_#{k}") unless k == "page" %>
+          <% end %>
+          <%= label_tag "current_page_number", "Page" %>
+          <%= text_field_tag "page", @items.current_page, :id => "current_page_number", :size => 3 %>
+          of
+          <strong>
+            <%= @items.total_pages %>
+          </strong>
+        <% end %>
+      </span>
+      <%= link_to("&nbsp;", url_for({:page => @items.next_page ? @items.next_page : 1}), :id => "next_page_link") %>
+      <%= link_to("&nbsp;", url_for({:page => @items.total_pages}), :id => "last_page_link") %>
+    </div>
+    <br clear="all"/>
+  </div>
+
+<% else -%>
+  <p>No tag specified</p>
+<% end -%>

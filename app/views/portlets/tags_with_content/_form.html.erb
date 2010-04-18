@@ -1,0 +1,14 @@
+<%= f.cms_text_field :name %>
+<%= f.cms_text_field :weighting_sizes, :instructions => 'Class names for sizes (smallest to largest).  Leave blank for no sizing.' %>
+<%= f.cms_text_field :number_of_tags %>
+<%= f.cms_check_box :include_pages, :instructions => 'Do you want to include tagged pages?' %>
+
+<%= f.cms_drop_down :layout,
+  TagsWithContentPortlet::LAYOUTS,
+  :label => "Display layout", :instructions => 'Style for list layout.  Selecting list will prevent Weighting Sizes from taking effect.' %>
+
+<%= f.cms_drop_down :order,
+  [['Tag name', 'name'], ['Popularity', 'popular'], ['Random', 'random']],
+  :label => "Display order" %>
+
+<%= f.cms_template_editor :template %>

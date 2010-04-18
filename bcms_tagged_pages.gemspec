@@ -15,6 +15,8 @@ Gem::Specification.new do |s|
   s.files = [
     "app/portlets/tagged_pages_portlet.rb",
     "app/portlets/tags_with_pages_portlet.rb",
+    "app/portlets/helpers/tags_with_pages_portlet_helper.rb",
+    "app/portlets/helpers/tagged_pages_portlet_helper.rb",
     "app/views/portlets/tagged_pages/_form.html.erb",
     "app/views/portlets/tagged_pages/_page.html.erb",
     "app/views/portlets/tagged_pages/render.html.erb",

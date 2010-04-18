@@ -1,0 +1,32 @@
+<div id="item_summary_<%= item.id %>" class="item_summary">
+  <% if item.is_a?(Page) -%>
+    <h2 class="page_heading"><%= link_to(item.name, item.path, :class => 'page_heading') %></h2>
+
+    <% unless item.description.blank? -%>
+      <p class="body">
+        <%=h item.description %>
+      </p>
+    <% end -%>
+
+  <% else -%>
+    <h2 class="page_heading"><%= item.name %></h2>
+
+    <p class="body">
+      Appears in:
+    </p>
+    <ul>
+      <% item.connected_pages.each do |c_page| -%>
+        <li><%= link_to(c_page.name, c_page.path, :class => 'appears') %></li>
+      <% end -%>
+    </ul>
+  <% end -%>
+    
+  <p class="meta">
+    Last updated on <%= item.updated_at.strftime("%d/%m/%Y") %>
+    <strong>|</strong>
+    Tags
+    <span class="tags">
+      <%= item.tags.map{|t| link_to(t.name, content_with_tag_path(:tag => t.name)) }.join(", ") %>
+    </span>
+  </p>
+</div>

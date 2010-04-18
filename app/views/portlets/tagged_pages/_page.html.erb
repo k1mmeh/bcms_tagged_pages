@@ -1,6 +1,6 @@
 <div id="page_summary_<%= page.id %>" class="page_summary">
-  <h2>
-    <%= link_to(page.name, page.path, :class => 'page_heading') %>
+  <h2 class="page_heading">
+    <%= link_to(page.name, page.path) %>
   </h2>
   <% unless page.description.blank? -%>
     <p class="body">
