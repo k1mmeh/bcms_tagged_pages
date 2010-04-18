@@ -1,6 +1,6 @@
 # Tagged pages module
 
-Version 0.1
+Version 0.2
 Kimmy Chirnside
 kimmy.chirnside@gmail.com
 
@@ -14,6 +14,16 @@ It provides two new portlets, TagsWithPagesPortlet, which borrows much functiona
 from the core TagCloudPortlet, but builds the could specifically from tags attached to
 pages.  Also TaggedPagesPorlet, which provides a route to list Pages for a specific
 tag.
+
+It also implements matching portlets for displaying tags for other content types and listing
+other content associated to specific tags.  This mirrors the TagsWithPagesPortlet and
+TaggedPagesPortlet with the new TagsWithContentPortlet and TaggedContentPortlet.
+The TaggedContentPortlet differs more substantially as it includes and option to exclude
+or include Page type content too.  It also displays items differently based on whether 
+they are a page or not, as if they are not a page, they must link to the pages that 
+include the content, rather than the content itself.
+Installation and configuration for these portlets should otherwise be the same as its 
+sister portlets, described below.
 
 To install, download the source from github at http://github.com/k1mmeh/bcms_tagged_pages.
 Then inside the root directory of the downloaded source, run:
