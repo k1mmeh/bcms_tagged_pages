@@ -1,5 +1,5 @@
 <% if @tag -%>
-  <h2>Pages for tag '<%=h @tag.name %>'</h2>
+  <h2>Content for tag '<%=h @tag.name %>'</h2>
   <%= render(:partial => "portlets/tagged_content/item", :collection => @items) %>
 
   <div class="pagination">
